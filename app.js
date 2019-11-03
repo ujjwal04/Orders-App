@@ -1,3 +1,4 @@
+import rowDetails from "./components/rowDetailsComponent";
 import searchComponent from "./components/searchComponent";
 import headerComponent from "./components/headerComponent";
 import { rowComponent } from "./components/rowComponent";
