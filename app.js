@@ -65,11 +65,22 @@ search.style.cssText = `
 `;
 search.addEventListener("keyup", () => {
   const value = search.value.toLowerCase();
-  const tr = document.getElementsByTagName("tr");
-  for (let i = 1; i <= rowDetails.length; i++) {
-    const td = tr[i].getElementsByTagName("td")[1];
-    if (td.textContent.toLowerCase().includes(value)) tr[i].style.display = "";
-    else tr[i].style.display = "none";
+  if (value == "") {
+    console.log("hii");
+    const rows = document.querySelector(".rows");
+    const elements = rows.getElementsByTagName("tr");
+    for (let i = 0; i < elements.length; i++) {
+      if (i >= 0 && i <= 9) elements[i].style.display = "";
+      else elements[i].style.display = "none";
+    }
+  } else {
+    const tr = document.getElementsByTagName("tr");
+    for (let i = 1; i <= rowDetails.length; i++) {
+      const td = tr[i].getElementsByTagName("td")[1];
+      if (td.textContent.toLowerCase().includes(value))
+        tr[i].style.display = "";
+      else tr[i].style.display = "none";
+    }
   }
 });
 
