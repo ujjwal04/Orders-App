@@ -66,7 +66,7 @@ search.style.cssText = `
 search.addEventListener("keyup", () => {
   const value = search.value.toLowerCase();
   if (value == "") {
-    console.log("hii");
+    console.log("hiiasdasdasd");
     const rows = document.querySelector(".rows");
     const elements = rows.getElementsByTagName("tr");
     for (let i = 0; i < elements.length; i++) {
