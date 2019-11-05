@@ -3,6 +3,7 @@ import searchComponent from "./components/searchComponent";
 import headerComponent from "./components/headerComponent";
 import { rowComponent } from "./components/rowComponent";
 import { paginationComponent } from "./components/paginationComponent";
+import { modalComponent } from "./components/modalComponent";
 
 const main = document.querySelector(".main");
 
@@ -25,14 +26,18 @@ const init = () => {
             <ul class="pages">
                 ${paginationComponent()}
             </ul>
-        </div>
-    </div>`;
+        </div>     
+    </div>
+    ${modalComponent()}
+`;
   return template;
 };
 
 main.innerHTML = `${init()}`;
 
-document.getElementsByTagName("html")[0].style.fontFamily = "sans-serif";
+document.getElementsByTagName("html")[0].style.cssText = `
+  font-family:sans-serif;
+`;
 
 const rows = document.querySelector(".rows");
 const elements = rows.getElementsByTagName("tr");
@@ -47,6 +52,7 @@ conatiner.style.cssText = `
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    height:100vh;
 `;
 
 const search_Container = document.querySelector(".search-container");
@@ -66,7 +72,6 @@ search.style.cssText = `
 search.addEventListener("keyup", () => {
   const value = search.value.toLowerCase();
   if (value == "") {
-    console.log("hii");
     const rows = document.querySelector(".rows");
     const elements = rows.getElementsByTagName("tr");
     for (let i = 0; i < elements.length; i++) {
@@ -170,4 +175,94 @@ for (let i = 0; i < pageNumbers.length; i++) {
         text-decoration:none;
         color:black;
     `;
+}
+
+const modal = document.querySelector(".simpleModal");
+modal.style.cssText = `
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:20px;
+  padding-top:0;
+  background-color:white;
+  width:250px;
+  display:none;
+`;
+
+const form = document.getElementById("edit");
+form.style.cssText = `
+  width:160px;
+  margin-top:10px;
+  margin-left:8px;
+`;
+
+const editHeader = document.getElementsByTagName("header");
+editHeader[0].style.cssText = `
+  background-color:#009879;
+  color:white;
+  text-transform:uppercase;
+  font-size:25px;
+  margin-top:0;
+  width:100%;
+  text-align:center;
+`;
+
+const editInput = document.querySelectorAll(".edit-input");
+for (let i = 0; i < editInput.length; i++) {
+  editInput[i].style.cssText = `
+    border:none;
+    border-bottom:0.5px solid black;
+    outline:none;
+  `;
+}
+
+const btn = document.querySelectorAll(".btn");
+for (let i = 0; i < btn.length; i++) {
+  btn[i].style.cssText = `
+    background:transparent;
+    border:none;
+    font-size:20px;
+    margin-bottom:8px;
+    padding:4px;
+    margin-right:4px;    
+    border-radius:30px;
+    cursor:pointer;
+  `;
+}
+
+const edit_btn = document.querySelector(".edit-btn");
+edit_btn.style.cssText += `
+  background-color:#009879;
+  color:white;
+  border-color:#009879;
+  font-size:20px;
+`;
+
+const cancel_btn = document.querySelector(".cancel-btn");
+cancel_btn.style.cssText += `
+  background-color:white;
+  color:#009879;
+  border:1px solid #009879;
+  font-size:20px;
+`;
+
+const cross = document.querySelector(".cross");
+cross.style.cssText = `
+  float:right;
+  margin-right:4px;
+  cursor:pointer;
+`;
+cross.addEventListener("click", () => {
+  document.getElementsByTagName("html")[0].style.backgroundColor = "white";
+  modal.style.display = "none";
+});
+
+const edit_link = document.querySelectorAll(".edit-link");
+for (let i = 0; i < edit_link.length; i++) {
+  edit_link[i].addEventListener("click", () => {
+    modal.style.display = "block";
+    document.getElementsByTagName("html")[0].style.backgroundColor =
+      "rgba(0,0,0,0.5)";
+  });
 }

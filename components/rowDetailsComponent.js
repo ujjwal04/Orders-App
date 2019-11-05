@@ -81,15 +81,15 @@ const rowDetails = [
   },
   {
     orderId: 11,
-    productName: "Headphones",
+    productName: "Bed",
     productCode: 123,
-    productType: "Electronics",
+    productType: "Furniture",
     status: "Dispatched",
     action: "Edit"
   },
   {
     orderId: 12,
-    productName: "TShirt",
+    productName: "Chinos",
     productCode: 12563,
     productType: "Clothes",
     status: "Cancellled",
@@ -97,15 +97,15 @@ const rowDetails = [
   },
   {
     orderId: 13,
-    productName: "Tissue Box",
+    productName: "Xbox Controller",
     productCode: 903,
-    productType: "Health",
+    productType: "Electronics",
     status: "Dispatched",
     action: "Edit"
   },
   {
     orderId: 14,
-    productName: "Chicken",
+    productName: "Salmon",
     productCode: 91,
     productType: "Food",
     status: "In process",
@@ -113,7 +113,7 @@ const rowDetails = [
   },
   {
     orderId: 15,
-    productName: "Apple Iphone 11",
+    productName: "Remi Note 5",
     productCode: 420,
     productType: "Electronics",
     status: "Dispatched",
@@ -121,7 +121,7 @@ const rowDetails = [
   },
   {
     orderId: 16,
-    productName: "MI band",
+    productName: "Titan Max 3",
     productCode: 421,
     productType: "Electronics",
     status: "Dispatched",
@@ -129,23 +129,23 @@ const rowDetails = [
   },
   {
     orderId: 17,
-    productName: "ColorFit Pro 2",
+    productName: "Garnier Men",
     productCode: 341,
-    productType: "Electronics",
+    productType: "Cosmetics",
     status: "Cancelled",
     action: "Edit"
   },
   {
     orderId: 18,
-    productName: "Trousers",
+    productName: "Power Bank",
     productCode: 420,
-    productType: "Clothing",
+    productType: "Electronics",
     status: "Dispatched",
     action: "Edit"
   },
   {
     orderId: 19,
-    productName: "Chicken Nuggets",
+    productName: "Glucon D",
     productCode: 426,
     productType: "Food",
     status: "In process",
@@ -153,9 +153,9 @@ const rowDetails = [
   },
   {
     orderId: 20,
-    productName: "Curtains",
+    productName: "Denims",
     productCode: 429,
-    productType: "Furniture",
+    productType: "Clothing",
     status: "Dispatched",
     action: "Edit"
   }

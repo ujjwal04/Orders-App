@@ -10,7 +10,7 @@ export const rowComponent = () => {
               <td>${rowDetails[i].productCode}</td>
               <td>${rowDetails[i].productType}</td>
               <td>${rowDetails[i].status}</td>
-              <td><a href="#">${rowDetails[i].action}</a></td>
+              <td><a href="#" class="edit-link">${rowDetails[i].action}</a></td>
           </tr>
           `;
   }
