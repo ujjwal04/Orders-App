@@ -40,7 +40,6 @@ main.innerHTML = `${init()}`;
 const edit_link = document.querySelectorAll(".edit-link");
 for (let i = 0; i < edit_link.length; i++) {
   edit_link[i].addEventListener("click", () => {
-    console.log("asdasd");
     modal.style.display = "block";
     document.getElementsByTagName("html")[0].style.backgroundColor =
       "rgba(0,0,0,0.5)";
