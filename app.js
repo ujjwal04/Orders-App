@@ -35,6 +35,49 @@ const init = () => {
 
 main.innerHTML = `${init()}`;
 
+const edit_link = document.querySelectorAll(".edit-link");
+for (let i = 0; i < edit_link.length; i++) {
+  edit_link[i].addEventListener("click", () => {
+    console.log("asdasd");
+    modal.style.display = "block";
+    document.getElementsByTagName("html")[0].style.backgroundColor =
+      "rgba(0,0,0,0.5)";
+
+    const row = edit_link[i].parentNode.parentNode;
+    const rowValues = row.getElementsByTagName("td");
+
+    document.getElementById("product_Name").value = rowValues[1].textContent;
+    document.getElementById("product_Type").value = rowValues[3].textContent;
+    document.getElementById("product_Status").value = rowValues[4].textContent;
+
+    const saveValues = () => {
+      //Saving the changed values
+      rowDetails[
+        rowValues[0].textContent - 1
+      ].productName = document.getElementById("product_Name").value;
+      rowDetails[
+        rowValues[0].textContent - 1
+      ].productType = document.getElementById("product_Type").value;
+      rowDetails[rowValues[0].textContent - 1].status = document.getElementById(
+        "product_Status"
+      ).value;
+      rowValues[1].textContent = document.getElementById("product_Name").value;
+      rowValues[3].textContent = document.getElementById("product_Type").value;
+      rowValues[4].textContent = document.getElementById(
+        "product_Status"
+      ).value;
+
+      //Hiding the modal
+      modal.style.display = "none";
+      document.getElementsByTagName("html")[0].style.backgroundColor = "";
+    };
+
+    edit_btn.addEventListener("click", () => {
+      saveValues();
+    });
+  });
+}
+
 document.getElementsByTagName("html")[0].style.cssText = `
   font-family:sans-serif;
 `;
@@ -45,7 +88,6 @@ for (let i = 0; i < elements.length; i++) {
   if (i >= 0 && i <= 9) elements[i].style.display = "";
   else elements[i].style.display = "none";
 }
-
 const conatiner = document.querySelector(".container");
 conatiner.style.cssText = `
     position:absolute;
@@ -159,9 +201,8 @@ for (let i = 0; i < li.length; i++) {
     li[i].style.backgroundColor = "white";
   });
   li[i].addEventListener("click", () => {
-    const tbody = document.querySelector(".rows");
-    const tr = tbody.getElementsByTagName("tr");
-    console.log(tr);
+    const rows = document.querySelector(".rows");
+    const tr = rows.getElementsByTagName("tr");
     for (let j = 0; j < tr.length; j++) {
       if (j >= i * 10 && j < i * 10 + 10) tr[j].style.display = "";
       else tr[j].style.display = "none";
@@ -228,6 +269,7 @@ for (let i = 0; i < btn.length; i++) {
     margin-right:4px;    
     border-radius:30px;
     cursor:pointer;
+    outline:none;
   `;
 }
 
@@ -246,6 +288,10 @@ cancel_btn.style.cssText += `
   border:1px solid #009879;
   font-size:20px;
 `;
+cancel_btn.addEventListener("click", () => {
+  document.getElementsByTagName("html")[0].style.backgroundColor = "white";
+  modal.style.display = "none";
+});
 
 const cross = document.querySelector(".cross");
 cross.style.cssText = `
@@ -257,12 +303,3 @@ cross.addEventListener("click", () => {
   document.getElementsByTagName("html")[0].style.backgroundColor = "white";
   modal.style.display = "none";
 });
-
-const edit_link = document.querySelectorAll(".edit-link");
-for (let i = 0; i < edit_link.length; i++) {
-  edit_link[i].addEventListener("click", () => {
-    modal.style.display = "block";
-    document.getElementsByTagName("html")[0].style.backgroundColor =
-      "rgba(0,0,0,0.5)";
-  });
-}
