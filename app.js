@@ -33,8 +33,10 @@ const init = () => {
   return template;
 };
 
+//main div insertion
 main.innerHTML = `${init()}`;
 
+//for edit button listener
 const edit_link = document.querySelectorAll(".edit-link");
 for (let i = 0; i < edit_link.length; i++) {
   edit_link[i].addEventListener("click", () => {
@@ -72,6 +74,7 @@ for (let i = 0; i < edit_link.length; i++) {
       document.getElementsByTagName("html")[0].style.backgroundColor = "";
     };
 
+    //for save button listener
     edit_btn.addEventListener("click", () => {
       saveValues();
     });
@@ -82,12 +85,15 @@ document.getElementsByTagName("html")[0].style.cssText = `
   font-family:sans-serif;
 `;
 
+//For first 10 rows
 const rows = document.querySelector(".rows");
 const elements = rows.getElementsByTagName("tr");
 for (let i = 0; i < elements.length; i++) {
   if (i >= 0 && i <= 9) elements[i].style.display = "";
   else elements[i].style.display = "none";
 }
+
+//for main container css
 const conatiner = document.querySelector(".container");
 conatiner.style.cssText = `
     position:absolute;
@@ -97,12 +103,14 @@ conatiner.style.cssText = `
     height:100vh;
 `;
 
+//for search bar css
 const search_Container = document.querySelector(".search-container");
 search_Container.style.cssText = `
     text-align:center;
     margin-bottom:10px;
 `;
 
+//for search input css
 const search = document.getElementById("search");
 search.style.cssText = `
     margin-top:3px;
@@ -131,6 +139,7 @@ search.addEventListener("keyup", () => {
   }
 });
 
+//for main table css
 const table = document.querySelector(".orders");
 table.style.cssText = `
     width:700px;
@@ -178,12 +187,14 @@ for (let i = 0; i < td.length; i++) {
 const pageContainer = document.querySelector(".pagination");
 pageContainer.style.cssText = `text-align:center;`;
 
+//for pagination css
 const pagination = document.querySelector(".pages");
 pagination.style.cssText = `
     list-style:none;
     text-align:center;
 `;
 
+//for pagination li listener
 const li = document.getElementsByTagName("li");
 for (let i = 0; i < li.length; i++) {
   li[i].style.cssText = `
@@ -210,6 +221,7 @@ for (let i = 0; i < li.length; i++) {
   });
 }
 
+//for page number css
 const pageNumbers = document.querySelectorAll(".numbers");
 for (let i = 0; i < pageNumbers.length; i++) {
   pageNumbers[i].style.cssText = `
@@ -218,6 +230,7 @@ for (let i = 0; i < pageNumbers.length; i++) {
     `;
 }
 
+//modal css
 const modal = document.querySelector(".simpleModal");
 modal.style.cssText = `
   position:absolute;
@@ -231,6 +244,7 @@ modal.style.cssText = `
   display:none;
 `;
 
+//for modal form css
 const form = document.getElementById("edit");
 form.style.cssText = `
   width:160px;
@@ -249,6 +263,7 @@ editHeader[0].style.cssText = `
   text-align:center;
 `;
 
+//for edit input css
 const editInput = document.querySelectorAll(".edit-input");
 for (let i = 0; i < editInput.length; i++) {
   editInput[i].style.cssText = `
@@ -258,6 +273,7 @@ for (let i = 0; i < editInput.length; i++) {
   `;
 }
 
+//for modal buttons css
 const btn = document.querySelectorAll(".btn");
 for (let i = 0; i < btn.length; i++) {
   btn[i].style.cssText = `
